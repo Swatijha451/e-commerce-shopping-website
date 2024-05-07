@@ -376,3 +376,6 @@ a.action_container:link {
     height: 14px;
     cursor: pointer;
   }
+  .mySpinner{
+    margin: 100px 0;
+  }

@@ -3,7 +3,9 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header =()=>{
+    const bag=useSelector(store=>store.bag);
     return (
         <>
         <header>
@@ -41,7 +43,7 @@ const Header =()=>{
                 {/* <span className="material-symbols-outlined action_icon">shopping_bag</span> */}
                 <IoBagOutline className="ation_icon" />
                 <span className="action_name">Bag</span>
-                <span className="bag-item-count">0</span>
+                <span className="bag-item-count">{bag.length}</span>
             </Link>
         </div>
     </header>
