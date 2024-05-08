@@ -10,16 +10,17 @@ const FetchItems = () => {
 
   useEffect(() => {
     if (fetchStatus.fetchDone) return;
-
+   
     const controller = new AbortController();
     const signal = controller.signal;
 
     dispatch(fetchStatusAction.markFetchingStarted());
-    fetch("http://localhost:8000/items", { signal })
+    fetch("http://localhost:8080/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusAction.markFetchDone());
         dispatch(fetchStatusAction.markFetchingFinished());
+        
         dispatch(itemsActions.addInitialItems(items[0]));
       });
 
